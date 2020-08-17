@@ -1,0 +1,6 @@
+# Project exclude paths
+/SvfAccount/target/
+/SvfBusiness/target/
+/SvfCommon/target/
+/SvfOrder/target/
+/SvfStorage/target/
