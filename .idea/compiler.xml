@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="SvfBusiness" />
         <module name="SvfStorage" />
         <module name="SvfCommon" />
-        <module name="SvfAccount" />
-        <module name="SvfBusiness" />
         <module name="SvfOrder" />
+        <module name="SvfAccount" />
       </profile>
     </annotationProcessing>
   </component>
