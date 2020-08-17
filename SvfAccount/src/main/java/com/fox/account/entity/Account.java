@@ -1,5 +1,6 @@
 package com.fox.account.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -8,7 +9,7 @@ import java.math.BigDecimal;
 
 @TableName(value = "account_tbl")
 public class Account {
-    @TableId(value = t.id)
+    @TableId(value = t.id,type = IdType.AUTO)
     private Integer id;
     @TableField(value = t.user_id)
     private String userId;

@@ -1,13 +1,14 @@
 package com.fox.storage.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName(value = "storage_tbl")
 public class Storage {
-    @TableId(value = t.id)
+    @TableId(value = t.id,type = IdType.AUTO)
     private Integer id;
     @TableField(value = t.commodityCode)
     private String commodityCode;
