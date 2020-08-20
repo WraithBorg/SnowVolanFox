@@ -21,6 +21,11 @@
             <artifactId>SvfCommon</artifactId>
             <version>1.0.0</version>
         </dependency>
-    </dependencies>
+        <!-- https://mvnrepository.com/artifact/p6spy/p6spy -->
 
+
+    </dependencies>
+    <build>
+        <finalName>SvfAccount</finalName>
+    </build>
 </project>

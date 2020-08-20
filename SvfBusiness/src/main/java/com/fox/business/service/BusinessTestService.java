@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 @Service
-public class BusinessService {
+public class BusinessTestService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BusinessService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BusinessTestService.class);
 
     @Resource
     private StorageClient storageClient;
@@ -27,6 +27,19 @@ public class BusinessService {
     @GlobalTransactional
     public void purchase(String userId, String commodityCode, int orderCount) {
         LOGGER.info("purchase begin ... xid: " + RootContext.getXID());
+        storageClient.deduct(commodityCode, orderCount);
+        orderClient.create(userId, commodityCode, orderCount);
+    }
+
+    @Transactional
+    public void purchase_WithOut_Global_Transaction(String userId, String commodityCode, int orderCount) {
+        LOGGER.info("purchase begin ... xid: " + RootContext.getXID());// XID为null
+        storageClient.deduct(commodityCode, orderCount);
+        orderClient.create(userId, commodityCode, orderCount);
+    }
+
+    public void purchase_WithOut_Transaction(String userId, String commodityCode, int orderCount) {
+        LOGGER.info("purchase begin ... xid: " + RootContext.getXID());// XID为null
         storageClient.deduct(commodityCode, orderCount);
         orderClient.create(userId, commodityCode, orderCount);
     }

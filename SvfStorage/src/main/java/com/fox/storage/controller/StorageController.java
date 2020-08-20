@@ -9,25 +9,24 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.sql.SQLException;
 
-@RequestMapping("/api/storage")
 @RestController
 public class StorageController {
 
     @Resource
     private StorageService storageService;
 
-    @GetMapping(value = "/deduct")
+    @GetMapping(value = "/storageProc/api/deduct")
     public void deduct(@RequestParam String commodityCode, @RequestParam Integer count) throws SQLException {
         System.out.println("storage XID " + RootContext.getXID());
         storageService.deduct(commodityCode, count);
     }
 
-    @GetMapping(value = "/get/{id}")
+    @GetMapping(value = "/storageProc/api/get/{id}")
     public Storage getById(@PathVariable("id") Integer id) {
         return storageService.get(id);
     }
 
-    @GetMapping(value = "/batch/update")
+    @GetMapping(value = "/storageProc/api/batch/update")
     public void batchUpdateCond() {
         try {
             storageService.batchUpdate();
@@ -36,7 +35,7 @@ public class StorageController {
         }
     }
 
-    @GetMapping(value = "/batch/delete")
+    @GetMapping(value = "/storageProc/api/batch/delete")
     public void batchDeleteCond() {
         try {
             storageService.batchDelete();
@@ -45,7 +44,7 @@ public class StorageController {
         }
     }
 
-    @GetMapping("/test")
+    @GetMapping("/storageProc/api/test")
     public Object test() {
         return CustomUtil.ofMap("id", System.currentTimeMillis());
     }

@@ -7,10 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SvfBusiness" />
-        <module name="SvfStorage" />
-        <module name="SvfCommon" />
-        <module name="SvfOrder" />
         <module name="SvfAccount" />
+        <module name="SvfCommon" />
+        <module name="SvfStorage" />
+        <module name="SvfOrder" />
       </profile>
     </annotationProcessing>
   </component>

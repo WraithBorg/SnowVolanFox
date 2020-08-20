@@ -10,19 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-@RequestMapping("/api/order")
 @RestController
 public class OrderController {
 
     @Resource
     private OrderService orderService;
 
-    @GetMapping(value = "/debit")
+    @GetMapping(value = "/orderProc/api/debit")
     public void debit(@RequestParam String userId, @RequestParam String commodityCode, @RequestParam Integer count) {
         System.out.println("order XID " + RootContext.getXID());
         orderService.create(userId, commodityCode, count);
     }
-    @GetMapping("/test")
+    @GetMapping("/orderProc/api/test")
     public Object test() {
         return CustomUtil.ofMap("id", System.currentTimeMillis());
     }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-@RequestMapping("/api/business")
 @RestController
 public class BusinessController {
 
@@ -20,7 +19,7 @@ public class BusinessController {
     /**
      * 购买下单，模拟全局事务提交
      */
-    @RequestMapping("/purchase/commit")
+    @RequestMapping("/businessProc/api/purchase/commit")
     public Boolean purchaseCommit(HttpServletRequest request) {
         businessService.purchase("1001", "2001", 1);
         return true;
@@ -29,7 +28,7 @@ public class BusinessController {
     /**
      * 购买下单，模拟全局事务回滚
      */
-    @RequestMapping("/purchase/rollback")
+    @RequestMapping("/businessProc/api/purchase/rollback")
     public Boolean purchaseRollback() {
         try {
             businessService.purchase("1002", "2001", 1);
@@ -39,7 +38,7 @@ public class BusinessController {
         }
         return true;
     }
-    @GetMapping("/test")
+    @GetMapping("/businessProc/api/test")
     public Object test() {
         return CustomUtil.ofMap("id", System.currentTimeMillis());
     }
